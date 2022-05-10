@@ -5,11 +5,11 @@ import styles from './Statistics.module.css';
 const Statistics = ({ good, neutral, bad, total, positivePercentage }) => {
   return (
     <ul className={styles.list}>
-      <li>GOOD: {good}</li>
-      <li>NEUTRAL: {neutral}</li>
-      <li>BAD: {bad}</li>
-      <li>TOTAL: {total} </li>
-      <li>POSITIVE FEEDBACK: {positivePercentage}%</li>
+      <li>Good: {good}</li>
+      <li>Neutral: {neutral}</li>
+      <li>Bad: {bad}</li>
+      <li>Total: {total} </li>
+      <li>Positive Feedback: {positivePercentage}%</li>
     </ul>
   );
 };

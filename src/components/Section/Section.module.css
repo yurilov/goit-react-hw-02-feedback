@@ -10,3 +10,7 @@
 .section + .section {
     margin-top: 10px;
 }
+
+.title {
+    margin-bottom: 10px;
+}
