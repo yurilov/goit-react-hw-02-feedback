@@ -1,15 +1,3 @@
-.statistics {
-    margin: 0 auto;
-}
-
-.title {
-    color: blueviolet;
-}
-
-.statItem {
-    color:darkblue
-}
-
-.statValue {
-    font-weight: 700;
+.list {
+    list-style: none;
 }

@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import './App.css';
-import Feedback from './Feedback/Feedback';
+import FeedbackOptions from './Feedback/FeedbackOptions';
+import Notification from "./Notification/Notification";
+import Section from "./Section/Section";
 import Statistics from './Statistics/Statistics';
 
 class App extends Component {
@@ -10,13 +12,41 @@ class App extends Component {
     bad: 0
   }
 
+  changeState = (e) => {
+    const name = e.target.name;
+    this.setState((prevState) => ({
+      [name]: prevState[name] + 1,
+    }));
+  };
+
+  calculateTotalFeedback = () => Object.values(this.state).reduce((sum, value) => (sum += value), 0);
+
+  calculatePositiveFeedbackPercentage = () => Math.round((this.state.good / this.calculateTotalFeedback()) * 100) || 0;
+
   render() {
     const { good, neutral, bad } = this.state;
 
     return (
       <>
-        <Feedback />
-        <Statistics />     
+        <Section title="Please leave feedback">
+          <FeedbackOptions
+            options={["good", "neutral", "bad"]}
+            onLeaveFeedback={this.changeState}
+          />
+        </Section>
+        <Section title="Statistics">
+          {this.calculateTotalFeedback() ? (
+            <Statistics
+              good={good}
+              neutral={neutral}
+              bad={bad}
+              total={this.calculateTotalFeedback()}
+              positivePercentage={this.calculatePositiveFeedbackPercentage()}
+            />
+          ) : (
+            <Notification title="No feedback given" />
+          )}
+        </Section>
       </>
     );
   }
