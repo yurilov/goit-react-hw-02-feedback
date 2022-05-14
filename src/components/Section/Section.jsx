@@ -1,5 +1,5 @@
 import React from "react";
-import PropTypes from "prop-types";
+import propTypes from "prop-types";
 import styles from "./Section.module.css";
 
 const Section = ({ title, children }) => {
@@ -14,7 +14,8 @@ const Section = ({ title, children }) => {
 };
 
 Section.propTypes = {
-  title: PropTypes.string.isRequired,
+  title: propTypes.string.isRequired,
+  children: propTypes.node.isRequired,
 };
 
 export default Section;

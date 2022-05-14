@@ -1,10 +1,11 @@
 import React from "react";
 import propTypes from "prop-types";
+import styles from './Notification.module.css'
 
 const Notification = ({ title }) => {
   return (
     <>
-      <h2>{title}</h2>
+      <h2 className={styles.title}>{title}</h2>
     </>
   );
 };

@@ -14,6 +14,7 @@ class App extends Component {
 
   changeState = (e) => {
     const name = e.target.name;
+
     this.setState((prevState) => ({
       [name]: prevState[name] + 1,
     }));
@@ -44,7 +45,7 @@ class App extends Component {
               positivePercentage={this.calculatePositiveFeedbackPercentage()}
             />
           ) : (
-            <Notification title="No feedback given" />
+            <Notification title="There is no feedback" />
           )}
         </Section>
       </>
